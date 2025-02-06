@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scanner de Códigos</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#007bff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        #scanner { width: 100%; height: 300px; border: 2px solid #ddd; }
+        input, select, button { margin: 10px 0; padding: 8px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="scanner"></div>
+    <input type="number" id="quantidade" placeholder="Quantidade">
+    <select id="unidade">
+        <option value="kg">kg</option>
+        <option value="unidade">unidade</option>
+        <option value="ml">ml</option>
+    </select>
+    <button onclick="enviarRegistro()">Enviar</button>
+
+    <script src="https://unpkg.com/quagga/dist/quagga.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(err => console.log('Erro:', err));
+        }
+    </script>
+</body>
+</html>

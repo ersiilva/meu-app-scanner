@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastrar Produto</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#007bff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        input, select, button { margin: 10px 0; padding: 8px; width: 100%; }
+    </style>
+</head>
+<body>
+    <input type="text" id="codigo" placeholder="Código de Barras">
+    <input type="text" id="nome" placeholder="Nome do Produto">
+    <select id="fator">
+        <option value="kg">kg</option>
+        <option value="unidade">unidade</option>
+        <option value="ml">ml</option>
+    </select>
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+
+    <script src="app.js"></script>
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(err => console.log('Erro:', err));
+        }
+    </script>
+</body>
+</html>
